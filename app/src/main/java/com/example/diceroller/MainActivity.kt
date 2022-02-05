@@ -24,14 +24,18 @@ class MainActivity : AppCompatActivity() {
         resultText.text = randomInt.toString()
     }
 
-    private  fun countUp() {
-        var resultText: TextView = findViewById(R.id.result_text)
+    private fun countUp() {
+        val resultText: TextView = findViewById(R.id.result_text)
+
         if (resultText.text == "Hello World!") {
-            resultText.text = 1.toString()
-        } else if (resultText.text.toString().toInt() >= 6) {
-            return
+            resultText.text = "1"
         } else {
-            resultText.text = (resultText.text.toString().toInt() + 1).toString()
+            var resultInt = resultText.text.toString().toInt()
+
+            if (resultInt < 6) {
+                resultInt++
+                resultText.text = resultInt.toString()
+            }
         }
     }
 }
